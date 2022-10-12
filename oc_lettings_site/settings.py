@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'oc_lettings_site.lettings',
+    'oc_lettings_site.profiles',
 ]
 
 MIDDLEWARE = [
