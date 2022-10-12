@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from oc_lettings_site import views
+from oc_lettings_site.lettings import views
 
 urlpatterns = [
     path('lettings/', views.lettings_index, name='lettings_index'),
