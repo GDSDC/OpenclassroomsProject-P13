@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 
 from oc_lettings_site.lettings import views
