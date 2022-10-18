@@ -3,6 +3,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.1.1
+  docker: circleci/docker@2.1.4
 
 jobs:
   build-and-test:
@@ -19,7 +20,21 @@ jobs:
           command: flake8
           name: run flake8
 
+
+
+
+
 workflows:
   master:
     jobs:
       - build-and-test
+
+      - docker/publish:
+          requires:
+            - build-and-test
+          image: gabrielbusiness2019/oc_lettings_site_build
+          tag: '$CIRCLE_SHA1,latest'
+          # Publish to dockerhub only if branch master
+          filters:
+            branches:
+              only: master
