@@ -18,3 +18,8 @@ jobs:
       - run:
           command: flake8
           name: run flake8
+
+workflows:
+  master:
+    jobs:
+      - build-and-test
