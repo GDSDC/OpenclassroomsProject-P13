@@ -27,8 +27,6 @@ jobs:
 workflows:
   master:
     jobs:
-      - build-and-test
-
       - docker/publish:
           image: gabrielbusiness2019/oc_lettings_site_build
           tag: '$CIRCLE_SHA1,latest'
