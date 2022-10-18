@@ -6,6 +6,7 @@ from pytest_django.asserts import assertTemplateUsed
 
 from oc_lettings_site.profiles.models import Profile
 
+
 @pytest.mark.django_db
 def test_index_view():
     """ Test of profiles.views.index """
@@ -32,7 +33,7 @@ def test_profile_view():
     # GIVEN - path to profiles:profile and a username
     uri = 'profiles:profile'
     user_test = User.objects.create(username='user_test', password='user_test_password')
-    profile_test = Profile.objects.create(user=user_test,favorite_city='city_test')
+    profile_test = Profile.objects.create(user=user_test, favorite_city='city_test')
     path = reverse(uri, kwargs={'username': user_test.username})
 
     # WHEN - making get request to path

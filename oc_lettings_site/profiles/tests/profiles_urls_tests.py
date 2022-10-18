@@ -27,7 +27,7 @@ def test_profiles_profile_url():
     # GIVEN - path to profiles:profile and a username
     uri = 'profiles:profile'
     user_test = User.objects.create(username='user_test', password='user_test_password')
-    Profile.objects.create(user=user_test,favorite_city='city_test')
+    Profile.objects.create(user=user_test, favorite_city='city_test')
     path = reverse(uri, kwargs={'username': user_test.username})
 
     # WHEN - resolving path
