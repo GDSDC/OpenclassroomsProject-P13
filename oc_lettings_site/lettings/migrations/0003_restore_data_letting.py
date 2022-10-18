@@ -9,14 +9,13 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('lettings', '0001_initial'),
+        ('lettings', '0002_restore_data_address'),
     ]
 
     operations = [
         migrations.RunSQL("""
-            INSERT INTO main.lettings_address
-            SELECT * FROM main.oc_lettings_site_address;
-            INSERT INTO main.lettings_letting
-            SELECT * FROM main.oc_lettings_site_letting;
+            INSERT INTO lettings_letting
+            SELECT id, title, address_id 
+            FROM oc_lettings_site_letting;
         """)
     ]
