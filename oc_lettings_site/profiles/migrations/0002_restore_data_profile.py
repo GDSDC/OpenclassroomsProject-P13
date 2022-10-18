@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RunSQL("""
-            INSERT INTO main.profiles_profile
-            SELECT * FROM main.oc_lettings_site_profile;
+            INSERT INTO profiles_profile
+            SELECT  id, favorite_city, user_id
+            FROM oc_lettings_site_profile;
         """)
     ]
