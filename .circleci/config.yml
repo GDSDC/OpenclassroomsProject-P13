@@ -3,7 +3,6 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.1.1
-  docker: circleci/docker@2.1.4
 
 jobs:
   build-and-test:
@@ -14,27 +13,37 @@ jobs:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
       - run:
+          name: tests
           command: pytest
-          name: run pytest
       - run:
+          name: linting PEP8
           command: flake8
-          name: run flake8
 
-
-
-
+  build_docker_push:
+    docker:
+        - image: cimg/python:3.9.12
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: docker build -t $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1 .
+      - run:
+          name: Push Docker Image
+          command: |
+            echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
+            docker tag $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1 $DOCKER_USERNAME/$DOCKER_REPOSITORY:latest
+            docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1
+            docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:latest
 
 workflows:
   master:
     jobs:
       - build-and-test
-
-      - docker/publish:
+      - build_docker_push:
           requires:
             - build-and-test
-          image: $DOCKER_LOGIN/$PROJECT_REPONAME
-          tag: $CIRCLE_SHA1
-          # Publish to dockerhub only if branch master
           filters:
             branches:
-              only: master
+              only:
+                - master
