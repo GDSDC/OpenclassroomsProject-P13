@@ -46,8 +46,11 @@ jobs:
           name: Start container and push to Heroku
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
-            heroku config:set DJANGO_ALLOWED_HOSTS=$HEROKU_APP_NAME.herokuapp.com --app $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:login
+            heroku maintenance:on --app $HEROKU_APP_NAME
+            heroku config:set DJANGO_ALLOWED_HOSTS=$HEROKU_APP_NAME.herokuapp.com --app $HEROKU_APP_NAME
+            heroku stack:set heroku-20 -a $HEROKU_APP_NAME
+            heroku maintenance:off --app $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:push -a $HEROKU_APP_NAME web
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:release -a $HEROKU_APP_NAME web
 
