@@ -22,10 +22,6 @@ jobs:
   build_docker_push:
     docker:
       - image: cimg/python:3.9.12
-    environment:
-      SECRET_KEY: $SECRET_KEY
-      SENTRY_DSN: $SENTRY_DSN
-
     steps:
       - checkout
       - setup_remote_docker
