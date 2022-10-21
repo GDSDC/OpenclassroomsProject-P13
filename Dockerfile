@@ -7,7 +7,6 @@ MAINTAINER Gabriel Da Costa
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV ALLOWED_HOSTS=127.0.0.1,0.0.0.0,.herokuapp.com
 ENV PORT=8000
 
 # Setup the working directory in the container
