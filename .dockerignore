@@ -2,9 +2,23 @@
 env
 .pytest_cache
 **/__pycache__
+*.pyc
 
-# --- Docker ---
-Dockerfile
+# --- Pycharm ---
+.idea
 
 # --- Git ---
 .git
+.gitignore
+
+# --- Docker ---
+Dockerfile
+.dockerignore
+
+# --- Heroku ---
+Procfile
+
+# --- CircleCI ---
+.circleci
+
+
