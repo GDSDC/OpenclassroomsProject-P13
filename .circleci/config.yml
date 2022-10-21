@@ -21,7 +21,11 @@ jobs:
 
   build_docker_push:
     docker:
-        - image: cimg/python:3.9.12
+      - image: cimg/python:3.9.12
+    environment:
+      SECRET_KEY: $SECRET_KEY
+      SENTRY_DSN: $SENTRY_DSN
+
     steps:
       - checkout
       - setup_remote_docker
@@ -63,10 +67,10 @@ workflows:
       - build_docker_push:
           requires:
             - build-and-test
-#          filters:
-#            branches:
-#              only:
-#                - master
+      #          filters:
+      #            branches:
+      #              only:
+      #                - master
       - deploy-heroku:
           requires:
             - build_docker_push
