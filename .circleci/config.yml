@@ -48,9 +48,10 @@ jobs:
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:login
             HEROKU_API_KEY=$HEROKU_API_KEY heroku maintenance:on --app $HEROKU_APP_NAME
-            HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
+#            HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set DJANGO_ALLOWED_HOSTS=$HEROKU_APP_NAME.herokuapp.com --app $HEROKU_APP_NAME
-            HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set SENTRY_DSN=$SENTRY_DSN -a $HEROKU_APP_NAME
+            HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set DEBUG=False -a $HEROKU_APP_NAME
+#            HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set SENTRY_DSN=$SENTRY_DSN -a $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku stack:set heroku-20 -a $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku maintenance:off --app $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:push -a $HEROKU_APP_NAME web
