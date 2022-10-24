@@ -130,7 +130,7 @@ Création des variables d'environnement au niveau du projet :
 |   `DOCKER_TOKEN`   | CircleCI | Token de votre compte Docker          |
 |   `HEROKU_API_KEY` | CircleCI | Clé API de votre compte Heroku        |
 | `HEROKU_APP_NAME` | CircleCI | Nom de l'application Heroku           |
-| `SENTRY_DSN`    | Heroku   | Token interne d'intégration Sentry    |
+| `SENTRY_DSN`    | CircleCI | Token interne d'intégration Sentry    |
 | `SECRET_KEY`  | Heroku   | Clé secrete Django                    |
 ---
 ### Accès à l'application :
