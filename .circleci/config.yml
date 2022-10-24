@@ -51,7 +51,7 @@ jobs:
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:login
             HEROKU_API_KEY=$HEROKU_API_KEY heroku maintenance:on --app $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set DJANGO_ALLOWED_HOSTS=$HEROKU_APP_NAME.herokuapp.com --app $HEROKU_APP_NAME
-            HEROKU_API_KEY=$HEROKU_API_KEY heroku config:set DEBUG=FALSE -a $HEROKU_APP_NAME
+            HEROKU_API_KEY=$HEROKU_API_KEY config:unset DEBUG -a $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku stack:set heroku-20 -a $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku maintenance:off --app $HEROKU_APP_NAME
             HEROKU_API_KEY=$HEROKU_API_KEY heroku container:push -a $HEROKU_APP_NAME web
