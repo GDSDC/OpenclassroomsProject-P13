@@ -13,37 +13,37 @@ jobs:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
       - run:
-          name: tests
+          name: Run Tests
           command: pytest
           env:
             SENTRY_DSN: $SENTRY_DSN
       - run:
-          name: linting PEP8
+          name: Run Linting PEP8
           command: flake8
 
-#  build_docker_push:
-#    docker:
-#      - image: cimg/python:3.9.12
-#    steps:
-#      - checkout
-#      - setup_remote_docker
-#      - run:
-#          name: Build Docker image
-#          command: docker build -t $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1 .
-#      - run:
-#          name: Push Docker Image
-#          command: |
-#            echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
-#            docker tag $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1 $DOCKER_USERNAME/$DOCKER_REPOSITORY:latest
-#            docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1
-#            docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:latest
+  build_docker_push:
+    docker:
+      - image: cimg/python:3.9.12
+    steps:
+      - checkout
+      - setup_remote_docker:
+      - run:
+          name: Build Docker image
+          command: docker build -t $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1 .
+      - run:
+          name: Push Docker Image
+          command: |
+            echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
+            docker tag $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1 $DOCKER_USERNAME/$DOCKER_REPOSITORY:latest
+            docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:$CIRCLE_SHA1
+            docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:latest
 
   deploy-heroku:
     docker:
       - image: cimg/python:3.9.12
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
       - run:
           name: Start container and push to Heroku
           command: |
@@ -61,17 +61,17 @@ workflows:
   master:
     jobs:
       - build-and-test
-#      - build_docker_push:
-#          requires:
-#            - build-and-test
-      #          filters:
-      #            branches:
-      #              only:
-      #                - master
-      - deploy-heroku
-#          requires:
-#            - build_docker_push
-##          filters:
-##            branches:
-##              only:
-##                - master
+      - build_docker_push:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only:
+                - master
+      - deploy-heroku:
+          requires:
+            - build_docker_push
+          filters:
+            branches:
+              only:
+                - master
