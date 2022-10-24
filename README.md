@@ -125,7 +125,8 @@ Création des variables d'environnement au niveau du projet :
 
 |   Nom des Variables  | Service  | Description                           |
 |---    |----------|---------------------------------------|
-|   `DOCKER_USER`   | CircleCI | Nom d'utilisateur votre compte Docker |
+|   `DOCKER_REPOSITORY`   | CircleCI | Nom de votre repository Docker        |
+|   `DOCKER_USERNAME`   | CircleCI | Nom d'utilisateur votre compte Docker |
 |   `DOCKER_TOKEN`   | CircleCI | Token de votre compte Docker          |
 |   `HEROKU_API_KEY` | CircleCI | Clé API de votre compte Heroku        |
 | `HEROKU_APP_NAME` | CircleCI | Nom de l'application Heroku           |
