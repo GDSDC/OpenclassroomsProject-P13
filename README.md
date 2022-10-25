@@ -140,6 +140,7 @@ Pour un déploiement en local via le code source ou l'image docker, veillez à r
 ```text
 SECRET_KEY=valeur_de_la_clé_secrète_django
 SENTRY_DSN=valeur_de_la_clé_sentry_dsn
+ENV=production
 ```
 
 **Docker :** 
