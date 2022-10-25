@@ -97,7 +97,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 #### Lors d'un commit sur la branche master, exécution des jobs suivants :
    
 - `build-and-test` décrit ci-dessus
-- `build_docker_push` qui est composé des actions (run) suivantes :
+- `build-docker-push` qui est composé des actions (run) suivantes :
   - Build Docker image : création d'une image docker à partir du code source via Git
   - Push Docker Image : upload de l'image créée vers le Docker Hub en deux temps : d'abord avec le tag correspondant au "hash" de commit CircleCI puis avec le tag "latest"
 - `deploy-heroku` composé de l'action (run) suivante :
@@ -106,11 +106,11 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 #### Workflow :
 Le job `build-and-test` est exécuté lors d'une modification apportée sur n'importe quelle branche du projet.
 
-Les jobs `build_docker_push` et `deploy-heroku` ne sont exécutés quant à eux que lors d'une modification apportée sur la branche master.
+Les jobs `build-docker-push` et `deploy-heroku` ne sont exécutés quant à eux que lors d'une modification apportée sur la branche master.
 
-Le job `build_docker_push` n'est exécuté que lorsque le job `build-and-test` est exécuté avec succès.
+Le job `build-docker-push` n'est exécuté que lorsque le job `build-and-test` est exécuté avec succès.
 
-Le job `deploy-heroku` n'est exécuté que lorsque le job `build_docker_push` est exécuté avec succès.
+Le job `deploy-heroku` n'est exécuté que lorsque le job `build-docker-push` est exécuté avec succès.
 
 
 
