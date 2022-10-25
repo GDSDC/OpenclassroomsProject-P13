@@ -15,8 +15,6 @@ jobs:
       - run:
           name: Run Tests
           command: pytest
-          env:
-            SENTRY_DSN: $SENTRY_DSN
       - run:
           name: Run Linting PEP8
           command: flake8
@@ -52,11 +50,12 @@ jobs:
             heroku container:login
             heroku maintenance:on --app $HEROKU_APP_NAME
             heroku config:set DJANGO_ALLOWED_HOSTS=$HEROKU_APP_NAME.herokuapp.com --app $HEROKU_APP_NAME
-            heroku config:set SENTRY_DSN=$SENTRY_DSN -a $HEROKU_APP_NAME
+#            heroku config:set SENTRY_DSN=$SENTRY_DSN -a $HEROKU_APP_NAME -> à mettre dans le heroku à la main
             heroku stack:set heroku-20 -a $HEROKU_APP_NAME
             heroku maintenance:off --app $HEROKU_APP_NAME
             heroku container:push -a $HEROKU_APP_NAME web
             heroku container:release -a $HEROKU_APP_NAME web
+            # voir pour activer le dyno
 
 workflows:
   master:
