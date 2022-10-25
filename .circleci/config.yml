@@ -53,8 +53,7 @@ jobs:
             heroku maintenance:off --app $HEROKU_APP_NAME
             heroku container:push -a $HEROKU_APP_NAME web
             heroku container:release -a $HEROKU_APP_NAME web
-            heroku container:ps:restart
-            # voir pour activer le dyno
+            heroku ps:restart --app $HEROKU_APP_NAME
 
 workflows:
   master:
