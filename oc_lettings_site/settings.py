@@ -1,12 +1,19 @@
+from pathlib import Path
 import os
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-ENV = os.getenv("ENV", 'dev')
+from dotenv import load_dotenv
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Take environment variables from .env file for local use
+if os.path.isfile(BASE_DIR / '.env'):
+    load_dotenv()
+
+ENV = os.getenv("ENV", 'dev')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -21,7 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "_________secret-key_for_dev-env__________"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', os.getenv('DJANGO_ALLOWED_HOSTS')]
 
 # Application definition
 
@@ -56,7 +63,7 @@ ROOT_URLCONF = 'oc_lettings_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'oc_lettings_site/web_site/templates')],
+        'DIRS': [BASE_DIR / 'oc_lettings_site/web_site/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +84,7 @@ WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'oc-lettings-site.sqlite3'),
+        'NAME': str(BASE_DIR / 'oc-lettings-site.sqlite3'),
     }
 }
 
@@ -115,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
