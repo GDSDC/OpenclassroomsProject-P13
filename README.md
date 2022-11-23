@@ -190,16 +190,9 @@ Le job `build-docker-push` n'est exécuté que lorsque le job `build-and-test` e
 
 Le job `deploy-heroku` n'est exécuté que lorsque le job `build-docker-push` est exécuté avec succès.
 
-
-
-
----
-
 ### Variables d'environnement :
 
-
 Création des variables d'environnement au niveau du projet :
- 
 
 | Nom des Variables   | Service  | Description                           |
 |---------------------|----------|---------------------------------------|
@@ -211,7 +204,8 @@ Création des variables d'environnement au niveau du projet :
 | `SENTRY_DSN`        | Heroku | Token interne d'intégration Sentry    |
 | `SECRET_KEY`        | Heroku   | Clé secrete Django                    |
 | `ENV`               | Heroku   | Environnement ('production' ou 'dev') |
----
+
+
 ### Accès à l'application :
 **Local :**  
 Pour un déploiement en local via le code source ou l'image docker, veillez à renseigner les variables d'environnement suivantes :
