@@ -13,6 +13,7 @@
 - [Architecture](#architecture)
 - [Configuration locale](#localconfig)
 - [Déploiement](#deployment)
+- [Présentation](#presentation)
 
 <a id="obj"></a>
 ## Objectif
@@ -228,3 +229,8 @@ docker run --env-file=env_file -i -p 8000:8000 <docker_image>
 **Heroku :** 
 
 https://oc-lettings-27.herokuapp.com/
+
+<a id="presentation"></a>
+### Présentation
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSOiqDLikxrQPaAu0QaBImoTD0CMJaHlYf4POBRm_IzMTcDZTanlpkW0ZJF6OPBg-BBsqm9KdbmncmC/embed?start=false&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
