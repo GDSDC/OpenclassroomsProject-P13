@@ -1,12 +1,49 @@
 <h3 align="center">
-    <img alt="Logo" title="#logo" width="150px" src="/assets/16004295603423_P11.png">
+    <img alt="Logo" title="#logo" width="250px" src="/assets/16004295603423_P11.png">
     <br>
 </h3>
 
 
-## Résumé
+# Openclassrooms Project P13
 
-Site web d'Orange County Lettings
+- [Objectif](#obj)
+- [Technologies](#techs)
+- [Requirements](#reqs)
+- [Architecture](#architecture)
+- [Configuration Locale](#localconfig) 
+
+<a id="obj"></a>
+## Objectif
+
+Orange County Lettings est une start-up dans le secteur de la location de biens immobiliers. La start-up est en pleine phase d’expansion aux États-Unis.
+L'objectif de ce projet est de faire évoluer le site web éxistant (repository GitHub : [OC Lettings](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR)) sur les points suivants :
+- Réduction de diverses dettes techniques sur le projet 
+- Refonte de l'architecture modulaire 
+- Ajout d'un pipeline CI/CD utilisant CircleCI et Heroku 
+- Surveillance de l’application et suivi des erreurs via Sentry.
+
+<a id="techs"></a>
+## Technologies Utilisées
+- [Python3](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+- [Gunicorn](https://gunicorn.org/)
+- [Sqlite](https://www.sqlite.org/)
+- [Docker](https://www.docker.com/)
+- [CircleCI](https://circleci.com/)
+- [Heroku](https://www.heroku.com/)
+- [Sentry](https://sentry.io/)
+- [Pytest-django](https://pytest-django.readthedocs.io/)
+- [Flake8](https://flake8.pycqa.org/)
+
+<a id="reqs"></a>
+## Requirements
+- django
+- gunicorn
+- sentry-sdk
+- pytest-django
+- flake8
+- python-dotenv
+- whitenoise
 
 ## Développement local
 
