@@ -7,6 +7,7 @@
 # Openclassrooms Project P13
 
 - [Objectif](#obj)
+- [Compétences](#competences)
 - [Technologies](#techs)
 - [Requirements](#reqs)
 - [Architecture](#architecture)
@@ -22,6 +23,14 @@ L'objectif de ce projet est de faire évoluer le site web éxistant (repository 
 - Refonte de l'architecture modulaire 
 - Ajout d'un pipeline CI/CD utilisant CircleCI et Heroku 
 - Surveillance de l’application et suivi des erreurs via Sentry.
+
+<a id="competences"></a>
+## Compétences acquises
+- Gérer la production de code en utilisant la méthodologie CI/CD avec CircleCI
+- Appliquer une architecture modulaire dans une application Python
+- Mettre en place un système de contrôle des codes en utilisant Sentry
+- Déployer une application en utilisant Heroku
+- Refactoriser une application pour réduire la dette technique
 
 <a id="techs"></a>
 ## Technologies Utilisées
