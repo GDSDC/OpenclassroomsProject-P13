@@ -10,7 +10,8 @@
 - [Technologies](#techs)
 - [Requirements](#reqs)
 - [Architecture](#architecture)
-- [Configuration Locale](#localconfig) 
+- [Configuration locale](#localconfig)
+- [Déploiement](#deployment)
 
 <a id="obj"></a>
 ## Objectif
@@ -45,7 +46,32 @@ L'objectif de ce projet est de faire évoluer le site web éxistant (repository 
 - python-dotenv
 - whitenoise
 
-## Développement local
+<a id="architecture"></a>
+## Architecture et répertoires
+```
+Project
+├── oc_lettings_site
+│   ├── lettings : application pour les locations
+│   ├── profiles : application pour les profiles utilisateurs
+│   ├── web_site : application pour le site web
+│   ├── settings.py : fichier de réglages django
+│   ├── urls.py : fichier principal des endpoints
+│   ├── ..
+|── staticfiles : fichier statiques pour l'environnement de production
+|── manage.py : fichier principal de gestion django
+|── oc-lettings-site.sqlite3 : base de données sqlite
+|── requirements.txt
+|── setup.cfg : fichier de configuration pour flake8 et pytest
+|
+|── .circleci
+│   ├── config.yml : fichier de configuration du pipeline ci/cd
+|── .dockerignore
+|── Dockerfile : fichier de création de notre image Docker
+|── Procfile : ficher de déploiement heroku
+```
+
+<a id="localconfig"></a>
+## Configuration locale
 
 ### Prérequis
 
@@ -119,7 +145,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
----
+<a id="deployment"></a>
 ## Déploiement
 
 **Prérequis :**
@@ -196,6 +222,6 @@ docker run --env-file=env_file -i -p 8000:8000 <docker_image>
 
 `docker_image` : accédez à la dernière image créée en utilisant le tag "latest", ou bien choisissez une image antérieure en utilisant le "hash" du commit CircleCi correspondant. 
 
-**Heroky :** 
+**Heroku :** 
 
 https://oc-lettings-27.herokuapp.com/
