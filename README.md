@@ -233,4 +233,4 @@ https://oc-lettings-27.herokuapp.com/
 <a id="presentation"></a>
 ### Présentation
 
-[<img alt="presentation" width="480px" src="/assets/presentation.png"](https://docs.google.com/presentation/d/e/2PACX-1vSOiqDLikxrQPaAu0QaBImoTD0CMJaHlYf4POBRm_IzMTcDZTanlpkW0ZJF6OPBg-BBsqm9KdbmncmC/pub?start=false&loop=false&delayms=5000)
+[<img alt="presentation" width="480px" src="/assets/presentation.png">](https://docs.google.com/presentation/d/e/2PACX-1vSOiqDLikxrQPaAu0QaBImoTD0CMJaHlYf4POBRm_IzMTcDZTanlpkW0ZJF6OPBg-BBsqm9KdbmncmC/pub?start=false&loop=false&delayms=5000)
