@@ -1,3 +1,9 @@
+<h3 align="center">
+    <img alt="Logo" title="#logo" width="150px" src="/assets/16004295603423_P11.png">
+    <br>
+</h3>
+
+
 ## Résumé
 
 Site web d'Orange County Lettings
