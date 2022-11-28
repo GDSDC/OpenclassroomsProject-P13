@@ -187,7 +187,7 @@ Le job `build-docker-push` n'est exécuté que lorsque le job `build-and-test` e
 
 Le job `deploy-heroku` n'est exécuté que lorsque le job `build-docker-push` est exécuté avec succès.
 
-[<img alt="presentation" width="480px" src="/assets/workflow.png">]
+<img alt="presentation" width="133px" src="/assets/workflow.png">
 
 ### Variables d'environnement :
 
