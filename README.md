@@ -39,6 +39,7 @@ L'objectif de ce projet est de faire évoluer le site web éxistant (repository 
 - [Django](https://www.djangoproject.com/)
 - [Gunicorn](https://gunicorn.org/)
 - [Sqlite](https://www.sqlite.org/)
+- [HTML](https://developer.mozilla.org/fr/docs/Web/HTML)
 - [Docker](https://www.docker.com/)
 - [CircleCI](https://circleci.com/)
 - [Heroku](https://www.heroku.com/)
