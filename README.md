@@ -109,7 +109,7 @@ cd OpenclassroomsProject-P13
 ### 2. Création d'un environnement virtuel 
 Créez l'environnement virtuel env.
 ```bash
-python3 -m venv env
+python3 -m venv venv
 ```
 
 ### 3. Activation et installation de votre environnement virtuel 
