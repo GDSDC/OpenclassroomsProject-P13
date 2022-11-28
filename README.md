@@ -116,7 +116,7 @@ python3 -m venv venv
 
 Activez votre environnement virtuel env nouvellement créé.
 ```bash
-source env/bin/activate
+source venv/bin/activate
 ```
 
 Installez les paquets présents dans la liste requirements.txt.
