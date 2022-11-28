@@ -126,42 +126,26 @@ pip install -r requirements.txt
 
 ## Utilisation
 
-### 1. Démarrage du serveur local
+#### 1. Démarrage du serveur local
 
-Accédez au dossier de travail.
-```bash
-cd oc_lettings_site
-```
-
-Démarrez le serveur local.
 ```bash
 python manage.py runserver
 ```
 
 
-### 2. Linting
+#### 2. Linting
 
-Accédez au dossier de travail.
-```bash
-cd oc_lettings_site
-```
-Éxectez flake8.
 ```bash
 flake8
 ```
 
-### 3. Tests unitaires
+#### 3. Tests unitaires
 
-Accédez au dossier de travail.
-```bash
-cd oc_lettings_site
-```
-Éxectez pytest.
 ```bash
 pytest
 ```
 
-### 4. Panel d'administration
+#### 4. Panel d'administration
 
 - Aller sur `http://localhost:8000/admin`
 - Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
