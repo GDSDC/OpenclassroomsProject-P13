@@ -179,6 +179,7 @@ pytest
   - Start container and push to Heroku : lancement du build de l'application sur Heroku via Git
   
 #### Workflow :
+<img align="right" alt="workflow" width="133px" src="/assets/workflow.png">
 Le job `build-and-test` est exécuté lors d'une modification apportée sur n'importe quelle branche du projet.
 
 Les jobs `build-docker-push` et `deploy-heroku` ne sont exécutés quant à eux que lors d'une modification apportée sur la branche master.
@@ -187,7 +188,7 @@ Le job `build-docker-push` n'est exécuté que lorsque le job `build-and-test` e
 
 Le job `deploy-heroku` n'est exécuté que lorsque le job `build-docker-push` est exécuté avec succès.
 
-<img alt="presentation" width="133px" src="/assets/workflow.png">
+
 
 ### Variables d'environnement :
 
